@@ -13,8 +13,7 @@ class Solution {
             }
             chars[idx++]=ch;
             if(count>1){
-                char []s=count.toString().toCharArray();
-                for( char ele:s){
+               for( char ele:String.valueOf(count).toCharArray()){
                     chars[idx++]=ele;
                 }
             }
