@@ -1,6 +1,7 @@
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
-        ArrayList<Integer>ans=new ArrayList<>();
+        int []ans=new int[nums.length-k+1];
+        int j=0;
         Deque<Integer>dq=new LinkedList<>();
         //analyse the window
         for(int i=0;i<k;i++){
@@ -11,7 +12,7 @@ class Solution {
         }
           
           for(int i=k;i<nums.length;i++){
-            ans.add(nums[dq.getFirst()]);
+            ans[j++]=nums[dq.getFirst()];
         //remove ele who doesnt match in curr window
 
         while(dq.size()>0 && dq.getFirst()<=i-k){
@@ -23,8 +24,9 @@ class Solution {
             }
             dq.addLast(i);
 }
-ans.add(nums[dq.getFirst()]);
- int[] array = ans.stream().mapToInt(Integer::intValue).toArray();
-return array;
+            ans[j++]=nums[dq.getFirst()];
+
+ 
+return ans;
     }
 }
