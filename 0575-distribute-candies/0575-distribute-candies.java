@@ -5,12 +5,12 @@ class Solution {
      for(int i=0;i<candyType.length;i++){
         set.add(candyType[i]);
      } 
-     if(set.size()>=n){
-        return n;
-     } 
-     else{
-          return set.size();
-     } 
-
+    //  if(set.size()>=n){
+    //     return n;
+    //  } 
+    //  else{
+    //       return set.size();
+    //  } 
+return Math.min(set.size(),n);
     }
 }
