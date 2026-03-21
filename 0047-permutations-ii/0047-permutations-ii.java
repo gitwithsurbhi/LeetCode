@@ -14,12 +14,14 @@ class Solution {
             res.add(new ArrayList<>(ds));
             return;
         }
+        HashSet<Integer>set=new HashSet();
         for(int i=idx;i<nums.length;i++){
-           if(i>idx && nums[i]==nums[i-1])continue;
+           if(set.contains(nums[i]))continue;
+           set.add(nums[i]);
 
-           swap(idx,i,nums);
+           swap(i,idx,nums);
            backtrack(idx+1,nums,res);
-           swap(idx,i,nums);
+           swap(i,idx,nums);
            
         }
     }
