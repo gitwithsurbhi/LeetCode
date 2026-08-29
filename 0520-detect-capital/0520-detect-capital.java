@@ -1,17 +1,19 @@
 class Solution {
-    public boolean isUpperCase(char c){
-        return c>='A' && c<='Z';
-    }
+    
     public boolean detectCapitalUse(String word) {
-       if(word == word.toUpperCase())return true;
-       else if(word== word.toLowerCase())return true;
-       else {
-        String str=word.substring(1);
-        
-        if(isUpperCase(word.charAt(0)) && str== str.toLowerCase())return true;
-        else{
-            return false;
-        }  
+       int u=0;
+       int l=0;
+       int n=word.length();
+       for(int i=0;i<n;i++){
+        if(Character.isUpperCase(word.charAt(i))){
+            u++;
+        }else{
+            l++;
+        }
+       }
+       if(u==n || l==n || u==1 && Character.isUpperCase(word.charAt(0)) )return true;
+       else{
+        return false;
        }
     }
 }
